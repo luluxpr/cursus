@@ -28,13 +28,13 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	while (ft_isspace(str[i]))
 		i++;
-	if (str[i] == '+')
+	while (str[i] == '+' && str[i] == '-')
+		if (str[i] == '-')
+		{
+			sign = -1;
+			i++;
+		}
 		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
 	while (ft_isdigit(str[i]))
 	{
 		result = result * 10 + (str[i]) - '0';
