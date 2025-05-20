@@ -33,14 +33,14 @@ char	*ft_itoa(int n)
 {
 	int		size;
 	char	*itoa_number;
-	int  num;
+	long  num;
 	
 	size = get_int_len(n);
 	itoa_number = (char *)malloc(sizeof(char) * (size + 1));
 	if (!itoa_number)
 		return (NULL);
 	itoa_number[size] = '\0';
-	num = n;
+	num = (long) n;
 	if (num == 0)
 		itoa_number[0] = '0';
 	if (num < 0)
@@ -50,25 +50,25 @@ char	*ft_itoa(int n)
 	}
 	while (num != 0)
 	{
-    //if (n < 0)
+    if (n < 0)
 	      itoa_number[--size] = (num % 10) + '0';
 		num = num / 10;
 	}
 	return (itoa_number);
 }
 
-int	main(void)
-{
-	int		number;
-	char	*result;
+// int	main(void)
+//{
+	//int		number;
+	//char	*result;
 
-	number = 7637828;  // INT_MIN
-	result = ft_itoa(number);
-	if (result)
-	{
-		printf("The number %d is: %s\n", number, result);
-		free(result);
-	}
-	return (0);
-}
+	//number = 7637828;  // INT_MIN
+	//result = ft_itoa(number);
+	//if (result)
+	//{
+	//	printf("The number %d is: %s\n", number, result);
+	//	free(result);
+	//}
+	//return (0);
+//}
 
